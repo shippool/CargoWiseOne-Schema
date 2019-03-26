@@ -1,0 +1,40 @@
+<xs:schema targetNamespace="http://www.cargowise.com/Schemas/Universal/2011/11" version="1.1" elementFormDefault="qualified" xmlns="http://www.cargowise.com/Schemas/Universal/2011/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="UniversalCommon.xsd" />
+  <xs:include schemaLocation="UniversalTransaction.xsd" />
+
+  <xs:element name="UniversalTransactionBatch" type="UniversalTransactionBatchData" />
+
+  <xs:complexType name="UniversalTransactionBatchData">
+    <xs:all>
+      <xs:element name="TransactionBatch" type="TransactionBatch"/>
+    </xs:all>
+    <xs:attribute name="version" type="xs:token" />
+  </xs:complexType>
+
+  <xs:complexType name="TransactionBatch">
+    <xs:all>
+      <xs:element name="BatchType" minOccurs="0" type="CodeDescriptionPair" />
+      <xs:element name="DataContext" minOccurs="0" type="DataContext" />
+      <xs:element name="DateFrom" minOccurs="0" type="emptiable_dateTime" />
+      <xs:element name="DateTo" minOccurs="0" type="emptiable_dateTime" />
+      <xs:element name="Periodicity" minOccurs="0" type="CodeDescriptionPair" />
+
+      <xs:element name="OrganizationAddressCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="OrganizationAddress" minOccurs="0" maxOccurs="unbounded" type="OrganizationAddress" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="TransactionCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Transaction" minOccurs="0" maxOccurs="unbounded" type="TransactionInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+</xs:schema>

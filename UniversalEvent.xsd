@@ -1,0 +1,239 @@
+<xs:schema targetNamespace="http://www.cargowise.com/Schemas/Universal/2011/11" version="1.1" elementFormDefault="qualified" xmlns="http://www.cargowise.com/Schemas/Universal/2011/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="UniversalCommon.xsd" />
+
+  <xs:element name="UniversalEvent" type="UniversalEventData" />
+
+  <xs:complexType name="UniversalEventData">
+    <xs:all>
+      <xs:element name="Event" type="Event"/>
+    </xs:all>
+    <xs:attribute name="version" type="xs:token" />
+  </xs:complexType>
+
+  <xs:complexType name="Event">
+    <xs:all>
+      <xs:element name="DataContext" minOccurs="0" type="DataContext" />
+
+      <xs:element name="EventTime" minOccurs="1" type="emptiable_dateTime" />
+      <xs:element name="EventType" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CreatedTime" minOccurs="0" type="emptiable_dateTime" />
+      <xs:element name="EventParameters" minOccurs="0">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="CustomsReferenceNumber" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Department" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="EquipmentReferenceNumber" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="ExternalDocumentType" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Facility" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="FlightDate" minOccurs="0" type="emptiable_dateTime" />
+            <xs:element name="Location" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="MessageSubType" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="MessageType" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Name" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="New" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Old" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Partial" minOccurs="0" type="xs:int" />
+            <xs:element name="Reason" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="ReceiptNumber" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="ReferenceNumber" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="RequestNumber" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Service" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Total" minOccurs="0" type="xs:int" />
+            <xs:element name="Type" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="VoyageFlightNumber" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="256" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EventReference" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1024" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsCancelled" minOccurs="0" type="xs:boolean" />
+      <xs:element name="IsEstimate" minOccurs="0" type="xs:boolean" />
+
+      <xs:element name="AdditionalContextCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AdditionalContext" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="DataContext" minOccurs="0" type="DataContext" />
+
+
+                  <xs:element name="ContextCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Context" minOccurs="0" maxOccurs="unbounded" type="Context" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AdditionalFieldsToUpdateCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AdditionalFieldsToUpdate" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="Type" minOccurs="1">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Value" minOccurs="1">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1024" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AttachedDocumentCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AttachedDocument" minOccurs="0" maxOccurs="unbounded" type="AttachedDocument" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ContextCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Context" minOccurs="0" maxOccurs="unbounded" type="Context" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+</xs:schema>

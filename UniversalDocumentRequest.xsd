@@ -1,0 +1,53 @@
+<xs:schema targetNamespace="http://www.cargowise.com/Schemas/Universal/2011/11" version="1.1" elementFormDefault="qualified" xmlns="http://www.cargowise.com/Schemas/Universal/2011/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="UniversalCommon.xsd" />
+
+  <xs:element name="UniversalDocumentRequest" type="UniversalDocumentRequestData" />
+
+  <xs:complexType name="UniversalDocumentRequestData">
+    <xs:all>
+      <xs:element name="DocumentRequest" type="DocumentRequest"/>
+    </xs:all>
+    <xs:attribute name="version" type="xs:token" />
+  </xs:complexType>
+
+  <xs:complexType name="DocumentRequest">
+    <xs:all>
+      <xs:element name="DataContext" minOccurs="0" type="DataContext" />
+
+
+      <xs:element name="FilterCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Filter" minOccurs="0" maxOccurs="unbounded" type="DocumentFilter" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="DocumentFilter">
+    <xs:all>
+      <xs:element name="Type" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="DocumentType" />
+            <xs:enumeration value="IsPublished" />
+            <xs:enumeration value="SaveDateUTCFrom" />
+            <xs:enumeration value="SaveDateUTCTo" />
+            <xs:enumeration value="CompanyCode" />
+            <xs:enumeration value="BranchCode" />
+            <xs:enumeration value="DepartmentCode" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Value" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1024" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+</xs:schema>

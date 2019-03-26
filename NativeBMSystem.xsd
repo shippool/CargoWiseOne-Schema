@@ -1,0 +1,1160 @@
+<xs:schema targetNamespace="http://www.cargowise.com/Schemas/Native/2011/11" version="2.0" elementFormDefault="qualified" xmlns="http://www.cargowise.com/Schemas/Native/2011/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="Native.xsd" />
+  <xs:element name="BMSystem" type="BMSystemData" />
+  <xs:complexType name="BMSystemData">
+    <xs:all>
+      <xs:element name="BMSystem" type="NativeBMSystem" />
+    </xs:all>
+    <xs:attribute name="version" type="xs:token" />
+  </xs:complexType>
+  <xs:complexType name="NativeBMSystem">
+    <xs:all>
+      <!-- Candidate Key: Name -->
+      <xs:element name="PK" minOccurs="0" type="xs:string" />
+      <xs:element name="Name" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="30" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Description" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
+      <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
+      <xs:element name="ResourceCountdownHours" minOccurs="0" type="emptiableDateTime" />
+      <xs:element name="IsLive" minOccurs="0" type="xs:boolean" />
+      <xs:element name="BMControlCustomisationLinkCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="BMControlCustomisationLink" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <!-- Candidate Key: ParentTableCode + ParentId + ControlType + JobType -->
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="ParentTableCode" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ControlType" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="JobType" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ControlCustomisation" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Name -->
+                        <xs:element name="Name" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="100" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BMSystemWorkflowDeterminerCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="BMSystemWorkflowDeterminer" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="WorkflowType" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BMSystemReleaseGroupCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="BMSystemReleaseGroup" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="ResourceCountdownTime" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="DeterminationParameters" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string" />
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Group" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="15" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BMComponentCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="BMComponent" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <!-- Candidate Key: BMSystem.PK + Name -->
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="Name" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Type" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="BufferTimespanInMinutes" minOccurs="0" type="xs:int" />
+                  <xs:element name="IsActive" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="OffsetInMinutes" minOccurs="0" type="xs:int" />
+                  <xs:element name="DisplaySequence" minOccurs="0" type="xs:int" />
+                  <xs:element name="BufferLoadLimitPercent" minOccurs="0" type="xs:short" />
+                  <xs:element name="AutoAssignTasksAge" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="NonCCRTemporaryOverloadLimitMultiplier" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="BufferTimeCapacityConstraintThresholdMultiple" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="GlbBranch" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="GlbDepartment" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BMChildComponentCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="BMChildComponent" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <!-- Candidate Key: BMSystem.PK + Name -->
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="Name" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="100" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="Type" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="BufferTimespanInMinutes" minOccurs="0" type="xs:int" />
+                              <xs:element name="IsActive" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="OffsetInMinutes" minOccurs="0" type="xs:int" />
+                              <xs:element name="DisplaySequence" minOccurs="0" type="xs:int" />
+                              <xs:element name="BufferLoadLimitPercent" minOccurs="0" type="xs:short" />
+                              <xs:element name="AutoAssignTasksAge" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="NonCCRTemporaryOverloadLimitMultiplier" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="BufferTimeCapacityConstraintThresholdMultiple" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="System" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Name -->
+                                    <xs:element name="Name" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="30" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="AgingBranch" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="AgingDepartment" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BMComponentReleaseGroupLinkCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="BMComponentReleaseGroupLink" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="IsConstrainedMode" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="AutoAssignTasksAge" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="GlbGroup" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="15" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BMZoneCapacityMultiplierCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="BMZoneCapacityMultiplier" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="Zone0Multiplier" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="Zone1Multiplier" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="Zone2Multiplier" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="Zone3Multiplier" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="GlbGroup" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="15" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BMComponentResourceLinkCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="BMComponentResourceLink" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <!-- Candidate Key: GlbStaff.Code + BMComponent.PK -->
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="CapacityLimitPercent" minOccurs="0" type="xs:short" />
+                              <xs:element name="IsCapacityConstrained" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="CapacityConstraintDetectedUtc" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="IsPersistentlyOverloaded" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="GlbStaff" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code + LoginName -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="LoginName" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="104" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="DesignatedAsCapacityConstrainedBy" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code + LoginName -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="LoginName" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="104" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BMComponentReplenishmentItemLinkCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="BMComponentReplenishmentItemLink" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <!-- Candidate Key: BMComponent.PK + BMReplenishmentItem.PK -->
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="QuantityOnHand" minOccurs="0" type="xs:int" />
+                              <xs:element name="TargetQuantity" minOccurs="0" type="xs:int" />
+                              <xs:element name="CommittedQuantity" minOccurs="0" type="xs:int" />
+                              <xs:element name="ReplenishmentItem" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ComponentFromCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ComponentFrom" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <!-- Candidate Key: BMSystem.PK + Name -->
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="Name" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Type" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="BufferTimespanInMinutes" minOccurs="0" type="xs:int" />
+                  <xs:element name="IsActive" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="OffsetInMinutes" minOccurs="0" type="xs:int" />
+                  <xs:element name="DisplaySequence" minOccurs="0" type="xs:int" />
+                  <xs:element name="BufferLoadLimitPercent" minOccurs="0" type="xs:short" />
+                  <xs:element name="AutoAssignTasksAge" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="NonCCRTemporaryOverloadLimitMultiplier" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="BufferTimeCapacityConstraintThresholdMultiple" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="ParentComponent" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: BMSystem.PK + Name -->
+                        <xs:element name="Name" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="100" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                        <xs:element name="System" minOccurs="0">
+                          <xs:complexType>
+                            <xs:all>
+                              <!-- Candidate Key: Name -->
+                              <xs:element name="Name" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="30" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                            <xs:attribute name="TableName" type="xs:string" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AgingBranch" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AgingDepartment" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BMComponentLinkCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="BMComponentLink" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="TransferRulesEnabled" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="IsReleaseGateRuleApplied" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="Sequence" minOccurs="0" type="xs:short" />
+                              <xs:element name="Name" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="50" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ComponentTo" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: BMSystem.PK + Name -->
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                    <xs:element name="Name" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="100" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="Type" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                                    <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                                    <xs:element name="BufferTimespanInMinutes" minOccurs="0" type="xs:int" />
+                                    <xs:element name="IsActive" minOccurs="0" type="xs:boolean" />
+                                    <xs:element name="OffsetInMinutes" minOccurs="0" type="xs:int" />
+                                    <xs:element name="DisplaySequence" minOccurs="0" type="xs:int" />
+                                    <xs:element name="BufferLoadLimitPercent" minOccurs="0" type="xs:short" />
+                                    <xs:element name="AutoAssignTasksAge" minOccurs="0" type="emptiableDateTime" />
+                                    <xs:element name="NonCCRTemporaryOverloadLimitMultiplier" minOccurs="0" type="xs:decimal" />
+                                    <xs:element name="BufferTimeCapacityConstraintThresholdMultiple" minOccurs="0" type="xs:decimal" />
+                                    <xs:element name="System" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: Name -->
+                                          <xs:element name="Name" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="30" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                        <xs:attribute name="TableName" type="xs:string" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="ParentComponent" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: BMSystem.PK + Name -->
+                                          <xs:element name="Name" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="100" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                          <xs:element name="System" minOccurs="0">
+                                            <xs:complexType>
+                                              <xs:all>
+                                                <!-- Candidate Key: Name -->
+                                                <xs:element name="Name" minOccurs="0">
+                                                  <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                      <xs:maxLength value="30" />
+                                                    </xs:restriction>
+                                                  </xs:simpleType>
+                                                </xs:element>
+                                                <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                              </xs:all>
+                                              <xs:attribute name="Action" type="Action" />
+                                              <xs:attribute name="TableName" type="xs:string" />
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                        <xs:attribute name="TableName" type="xs:string" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="AgingBranch" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: Code -->
+                                          <xs:element name="Code" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                        <xs:attribute name="TableName" type="xs:string" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="AgingDepartment" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: Code -->
+                                          <xs:element name="Code" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                        <xs:attribute name="TableName" type="xs:string" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="ComponentStmDataCollection" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ComponentStmData" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: Name + Owner + DepartmentGuid -->
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                          <xs:element name="Name" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="300" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="DepartmentGuid" minOccurs="0" type="xs:string" />
+                                          <xs:element name="Type" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="BinaryValue" minOccurs="0" type="xs:base64Binary" />
+                                          <xs:element name="GuidValue" minOccurs="0" type="xs:string" />
+                                          <xs:element name="IsLogged" minOccurs="0" type="xs:boolean" />
+                                          <xs:element name="IsCancelled" minOccurs="0" type="xs:boolean" />
+                                          <xs:element name="PreserveTestValue" minOccurs="0" type="xs:boolean" />
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="StmModuleFilter" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                    <xs:element name="ModuleID" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="200" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="FilterData" minOccurs="0" type="xs:base64Binary" />
+                                    <xs:element name="RelatedEntityID" minOccurs="0" type="xs:string" />
+                                    <xs:element name="ColumnLayoutData" minOccurs="0" type="xs:base64Binary" />
+                                    <xs:element name="IsSystem" minOccurs="0" type="xs:boolean" />
+                                    <xs:element name="IsPublished" minOccurs="0" type="xs:boolean" />
+                                    <xs:element name="SaveColumnLayout" minOccurs="0" type="xs:boolean" />
+                                    <xs:element name="FilterName" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="50" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="FilterType" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="GlbCompany" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: Code -->
+                                          <xs:element name="Code" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="StmModuleFilterUserData" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: RelatedEntityID + StmModuleFilter.PK -->
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                          <xs:element name="RelatedEntityID" minOccurs="0" type="xs:string" />
+                                          <xs:element name="FilterDataValues" minOccurs="0" type="xs:base64Binary" />
+                                          <xs:element name="RelatedEntityTableCode" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="TableName" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ComponentToCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ComponentTo" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <!-- Candidate Key: BMSystem.PK + Name -->
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="Name" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Type" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="BufferTimespanInMinutes" minOccurs="0" type="xs:int" />
+                  <xs:element name="IsActive" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="OffsetInMinutes" minOccurs="0" type="xs:int" />
+                  <xs:element name="DisplaySequence" minOccurs="0" type="xs:int" />
+                  <xs:element name="BufferLoadLimitPercent" minOccurs="0" type="xs:short" />
+                  <xs:element name="AutoAssignTasksAge" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="NonCCRTemporaryOverloadLimitMultiplier" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="BufferTimeCapacityConstraintThresholdMultiple" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="ParentComponent" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: BMSystem.PK + Name -->
+                        <xs:element name="Name" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="100" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                        <xs:element name="System" minOccurs="0">
+                          <xs:complexType>
+                            <xs:all>
+                              <!-- Candidate Key: Name -->
+                              <xs:element name="Name" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="30" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                            <xs:attribute name="TableName" type="xs:string" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AgingBranch" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AgingDepartment" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BMComponentLinkCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="BMComponentLink" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="TransferRulesEnabled" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="IsReleaseGateRuleApplied" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="Sequence" minOccurs="0" type="xs:short" />
+                              <xs:element name="Name" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="50" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ComponentFrom" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: BMSystem.PK + Name -->
+                                    <xs:element name="Name" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="100" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                    <xs:element name="System" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: Name -->
+                                          <xs:element name="Name" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="30" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                        <xs:attribute name="TableName" type="xs:string" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="ComponentStmDataCollection" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ComponentStmData" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: Name + Owner + DepartmentGuid -->
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                          <xs:element name="Name" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="300" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="DepartmentGuid" minOccurs="0" type="xs:string" />
+                                          <xs:element name="Type" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="BinaryValue" minOccurs="0" type="xs:base64Binary" />
+                                          <xs:element name="GuidValue" minOccurs="0" type="xs:string" />
+                                          <xs:element name="IsLogged" minOccurs="0" type="xs:boolean" />
+                                          <xs:element name="IsCancelled" minOccurs="0" type="xs:boolean" />
+                                          <xs:element name="PreserveTestValue" minOccurs="0" type="xs:boolean" />
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="StmModuleFilter" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                    <xs:element name="ModuleID" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="200" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="FilterData" minOccurs="0" type="xs:base64Binary" />
+                                    <xs:element name="RelatedEntityID" minOccurs="0" type="xs:string" />
+                                    <xs:element name="ColumnLayoutData" minOccurs="0" type="xs:base64Binary" />
+                                    <xs:element name="IsSystem" minOccurs="0" type="xs:boolean" />
+                                    <xs:element name="IsPublished" minOccurs="0" type="xs:boolean" />
+                                    <xs:element name="SaveColumnLayout" minOccurs="0" type="xs:boolean" />
+                                    <xs:element name="FilterName" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="50" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="FilterType" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="GlbCompany" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: Code -->
+                                          <xs:element name="Code" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="StmModuleFilterUserData" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <!-- Candidate Key: RelatedEntityID + StmModuleFilter.PK -->
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                          <xs:element name="RelatedEntityID" minOccurs="0" type="xs:string" />
+                                          <xs:element name="FilterDataValues" minOccurs="0" type="xs:base64Binary" />
+                                          <xs:element name="RelatedEntityTableCode" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="TableName" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StmNoteCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StmNote" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="NoteData" minOccurs="0" type="xs:base64Binary" />
+                  <xs:element name="NoteText" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string" />
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NoteType" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NoteContext" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="IsCustomDescription" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="ForceRead" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="Description" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="RelatedCompany" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="Action" type="Action" />
+  </xs:complexType>
+</xs:schema>

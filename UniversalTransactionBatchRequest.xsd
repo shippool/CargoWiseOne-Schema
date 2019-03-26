@@ -1,0 +1,21 @@
+<xs:schema targetNamespace="http://www.cargowise.com/Schemas/Universal/2011/11" version="1.1" elementFormDefault="qualified" xmlns="http://www.cargowise.com/Schemas/Universal/2011/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="UniversalCommon.xsd" />
+
+  <xs:element name="UniversalTransactionBatchRequest" type="UniversalTransactionBatchRequestData" />
+
+  <xs:complexType name="UniversalTransactionBatchRequestData">
+    <xs:all>
+      <xs:element name="TransactionBatchRequest" type="TransactionBatchRequest"/>
+    </xs:all>
+    <xs:attribute name="version" type="xs:token" />
+  </xs:complexType>
+
+  <xs:complexType name="TransactionBatchRequest">
+    <xs:all>
+      <xs:element name="DataContext" minOccurs="0" type="DataContext" />
+
+      <xs:element name="ActionType" minOccurs="1" type="CodeDescriptionPair" />
+    </xs:all>
+  </xs:complexType>
+
+</xs:schema>

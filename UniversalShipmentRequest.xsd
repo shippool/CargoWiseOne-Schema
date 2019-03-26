@@ -1,0 +1,20 @@
+<xs:schema targetNamespace="http://www.cargowise.com/Schemas/Universal/2011/11" version="1.1" elementFormDefault="qualified" xmlns="http://www.cargowise.com/Schemas/Universal/2011/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="UniversalCommon.xsd" />
+
+  <xs:element name="UniversalShipmentRequest" type="UniversalShipmentRequestData" />
+
+  <xs:complexType name="UniversalShipmentRequestData">
+    <xs:all>
+      <xs:element name="ShipmentRequest" type="ShipmentRequest"/>
+    </xs:all>
+    <xs:attribute name="version" type="xs:token" />
+  </xs:complexType>
+
+  <xs:complexType name="ShipmentRequest">
+    <xs:all>
+      <xs:element name="DataContext" minOccurs="0" type="DataContext" />
+
+    </xs:all>
+  </xs:complexType>
+
+</xs:schema>

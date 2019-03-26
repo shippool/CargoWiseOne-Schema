@@ -1,0 +1,81 @@
+<xs:schema targetNamespace="http://www.cargowise.com/Schemas/Universal/2011/11" version="1.1" elementFormDefault="qualified" xmlns="http://www.cargowise.com/Schemas/Universal/2011/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="UniversalCommon.xsd" />
+
+  <xs:element name="UniversalActivity" type="UniversalActivityData" />
+
+  <xs:complexType name="UniversalActivityData">
+    <xs:all>
+      <xs:element name="Activity" type="Activity"/>
+    </xs:all>
+    <xs:attribute name="version" type="xs:token" />
+  </xs:complexType>
+
+  <xs:complexType name="Activity">
+    <xs:all>
+      <xs:element name="DataContext" minOccurs="0" type="DataContext" />
+
+      <xs:element name="Summary" minOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Branch" minOccurs="0" type="Branch" />
+      <xs:element name="Company" minOccurs="0" type="Company" />
+      <xs:element name="Conversation" minOccurs="0" type="Conversation" />
+      <xs:element name="CreatedBy" minOccurs="0" type="Staff" />
+      <xs:element name="Department" minOccurs="0" type="Department" />
+      <xs:element name="Description" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2147483647" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="JobCosting" minOccurs="0" type="JobCosting" />
+      <xs:element name="Location" minOccurs="0" type="CodeDescriptionPair5Char" />
+      <xs:element name="ProjectManager" minOccurs="0" type="Staff" />
+      <xs:element name="SelectionCriterion1" minOccurs="0" type="CodeDescriptionPair" />
+      <xs:element name="SelectionCriterion2" minOccurs="0" type="CodeDescriptionPair" />
+      <xs:element name="SelectionCriterion3" minOccurs="0" type="CodeDescriptionPair" />
+      <xs:element name="SelectionCriterion4" minOccurs="0" type="CodeDescriptionPair" />
+      <xs:element name="SelectionCriterion5" minOccurs="0" type="CodeDescriptionPair" />
+      <xs:element name="Status" minOccurs="0" type="CodeDescriptionPair" />
+
+      <xs:element name="CustomizedFieldCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CustomizedField" minOccurs="0" maxOccurs="unbounded" type="CustomizedField" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="NoteCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Note" minOccurs="0" maxOccurs="unbounded" type="Note" />
+          </xs:sequence>
+          <xs:attribute name="Content" type="CollectionContent" />
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="OrganizationAddressCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="OrganizationAddress" minOccurs="0" maxOccurs="unbounded" type="OrganizationAddress" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RelatedActivityCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RelatedActivity" minOccurs="0" maxOccurs="unbounded" type="Activity" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+</xs:schema>
