@@ -1,0 +1,7 @@
+# version format
+version: "{build}"
+
+image: Visual Studio 2017
+
+build_script:
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeAcceptabilityBand NativeAcceptabilityBand.xsd Native.xsd UniversalCommon.xsd
