@@ -25,13 +25,6 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="CoOrdinates" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="12" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
       <xs:element name="HasAirport" minOccurs="0" type="xs:boolean" />
       <xs:element name="HasSeaport" minOccurs="0" type="xs:boolean" />
       <xs:element name="HasRail" minOccurs="0" type="xs:boolean" />

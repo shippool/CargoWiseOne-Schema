@@ -619,6 +619,34 @@
                                   <xs:attribute name="TableName" type="xs:string" />
                                 </xs:complexType>
                               </xs:element>
+                              <xs:element name="OrgDocumentCopyRecipientCollection" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="OrgDocumentCopyRecipient" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                          <xs:element name="RecipientType" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="EmailAddress" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="254" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
                             </xs:all>
                             <xs:attribute name="Action" type="Action" />
                           </xs:complexType>
@@ -1072,6 +1100,36 @@
                                 </xs:simpleType>
                               </xs:element>
                               <xs:element name="IsMainAddress" minOccurs="0" type="xs:boolean" />
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="OrgTimetableCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="OrgTimetable" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="Type" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="Monday" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="Tuesday" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="Wednesday" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="Thursday" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="Friday" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="Saturday" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="Sunday" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="TimeFrom" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="TimeTo" minOccurs="0" type="emptiableDateTime" />
                             </xs:all>
                             <xs:attribute name="Action" type="Action" />
                           </xs:complexType>
@@ -2935,6 +2993,13 @@
                   </xs:element>
                   <xs:element name="APCreateVATComplianceDocumentOnPosting" minOccurs="0" type="xs:boolean" />
                   <xs:element name="ARCreateVATComplianceDocumentOnPosting" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="IMProductValueDefaultOptions" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="256" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="APCreditorGroup" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -3606,6 +3671,16 @@
                                   <xs:restriction base="xs:string" />
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="ClearedReason" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string" />
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ExcludedLists" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string" />
+                                </xs:simpleType>
+                              </xs:element>
                               <xs:element name="HighConfidenceResults" minOccurs="0">
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string" />
@@ -3617,6 +3692,7 @@
                                   <xs:restriction base="xs:string" />
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="ScreenDateUtc" minOccurs="0" type="emptiableDateTime" />
                               <xs:element name="ScreenedBy" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>

@@ -272,6 +272,13 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="IsTact" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="PaymentTerm" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="Currency" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
