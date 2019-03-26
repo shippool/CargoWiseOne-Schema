@@ -3,7 +3,7 @@ version: "{build}"
 
 image: Visual Studio 2017
 environment:
-  PATH: "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools";$(PATH)
+  PATH: "C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v10.0A\\bin\\NETFX 4.7.2 Tools;$(PATH)"
 
 build_script:
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeAcceptabilityBand NativeAcceptabilityBand.xsd Native.xsd UniversalCommon.xsd
