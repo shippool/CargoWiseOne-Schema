@@ -1,0 +1,45 @@
+# version format
+version: "{build}"
+
+image: Visual Studio 2017
+environment:
+  PATH: "C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v10.0A\\bin\\NETFX 4.7.2 Tools;C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319;$(PATH)"
+
+build_script:
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeAcceptabilityBand NativeAcceptabilityBand.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeAirline NativeAirline.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeBMSystem NativeBMSystem.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeCommodityCode NativeCommodityCode.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeCompany NativeCompany.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeContainer NativeContainer.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeCountry NativeCountry.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeCurrencyExchangeRate NativeCurrencyExchangeRate.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeCusStatement NativeCusStatement.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeDangerousGood NativeDangerousGood.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeOrganization NativeOrganization.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeProduct NativeProduct.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeRate NativeRate.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeServiceLevel NativeServiceLevel.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeStaff NativeStaff.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeTag NativeTag.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeTagRule NativeTagRule.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeUNLOCO NativeUNLOCO.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeVessel NativeVessel.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeWorkflowTemplate NativeWorkflowTemplate.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalActivity UniversalActivity.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalActivityRequest UniversalActivityRequest.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalDocumentRequest UniversalDocumentRequest.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalEvent UniversalEvent.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalInterchange UniversalInterchange.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalInterchangeRequeueRequest UniversalInterchangeRequeueRequest.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalResponse UniversalResponse.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalSchedule UniversalSchedule.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalShipment UniversalShipment.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalShipmentRequest UniversalShipmentRequest.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalTransaction UniversalTransaction.xsd UniversalShipment.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalTransactionBatch UniversalTransactionBatch.xsd UniversalTransaction.xsd UniversalShipment.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalTransactionBatchRequest UniversalTransactionBatchRequest.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 csc -target:library -out:CargoWiseOneSchema.dll -warn:0 -nologo -debug *.cs
+
+artifacts:
+  - path: CargoWiseOneSchema.dll
