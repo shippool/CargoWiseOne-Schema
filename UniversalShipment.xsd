@@ -3897,42 +3897,6 @@
     </xs:all>
   </xs:complexType>
 
-  <xs:complexType name="Milestone">
-    <xs:all>
-      <xs:element name="Description" minOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="50" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="EventCode" minOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="3" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="Sequence" minOccurs="1" type="xs:int" />
-      <xs:element name="ActualDate" minOccurs="0" type="emptiable_dateTime" />
-      <xs:element name="ConditionReference" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="128" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="ConditionType" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="3" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="EstimatedDate" minOccurs="0" type="emptiable_dateTime" />
-    </xs:all>
-  </xs:complexType>
-
   <xs:complexType name="OrganizationContact">
     <xs:all>
       <xs:element name="FullName" minOccurs="1">
@@ -4095,6 +4059,40 @@
             <xs:maxLength value="1" />
           </xs:restriction>
         </xs:simpleType>
+      </xs:element>
+      <xs:element name="NMFC" minOccurs="0">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="Class" minOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="8" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Code" minOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="15" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="ItemNo" minOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="6" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Description" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="240" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
       </xs:element>
       <xs:element name="OrderReference" minOccurs="0">
         <xs:simpleType>
@@ -4539,6 +4537,7 @@
   <xs:complexType name="TaxOrFee">
     <xs:all>
       <xs:element name="Type" minOccurs="1" type="CodeDescriptionPair6Char" />
+      <xs:element name="Amount" minOccurs="0" type="xs:decimal" />
       <xs:element name="BaseQuantity" minOccurs="0" type="xs:decimal" />
       <xs:element name="BaseValue" minOccurs="0" type="xs:decimal" />
       <xs:element name="MethodOfCalculation" minOccurs="0" type="CodeDescriptionPair4Char" />

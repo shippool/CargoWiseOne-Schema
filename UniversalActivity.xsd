@@ -51,6 +51,14 @@
         </xs:complexType>
       </xs:element>
 
+      <xs:element name="MilestoneCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Milestone" minOccurs="0" maxOccurs="unbounded" type="Milestone" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
       <xs:element name="NoteCollection" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -72,6 +80,14 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element name="RelatedActivity" minOccurs="0" maxOccurs="unbounded" type="Activity" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="TaskSetCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TaskSet" minOccurs="0" maxOccurs="unbounded" type="TaskSet" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>

@@ -13,7 +13,7 @@
       <xs:element name="StatementNumber" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="15" />
+            <xs:maxLength value="25" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -114,6 +114,8 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="PaidAmount" minOccurs="0" type="xs:decimal" />
+      <xs:element name="RefundAmount" minOccurs="0" type="xs:decimal" />
       <xs:element name="Importer" minOccurs="0">
         <xs:complexType>
           <xs:all>
@@ -157,7 +159,7 @@
                   <xs:element name="StatementNumber" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:maxLength value="15" />
+                        <xs:maxLength value="25" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
@@ -258,6 +260,8 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="PaidAmount" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="RefundAmount" minOccurs="0" type="xs:decimal" />
                   <xs:element name="Importer" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -480,6 +484,31 @@
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="AssociatedEntry" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="35" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="CreditNote" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="15" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="CreditNoteDate" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="DueDate" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="EntryDate" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="ImporterCustomsID" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="15" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ScheduledProcessDate" minOccurs="0" type="emptiableDateTime" />
                               <xs:element name="CusStatementLineChargeCollection" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
@@ -495,6 +524,73 @@
                                             </xs:simpleType>
                                           </xs:element>
                                           <xs:element name="ChargeAmount" minOccurs="0" type="xs:decimal" />
+                                          <xs:element name="PaymentParty" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                        </xs:all>
+                                        <xs:attribute name="Action" type="Action" />
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="CusStatementLineGroupCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CusStatementLineGroup" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="ImporterCustomsID" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="15" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="Importer" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="12" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="CusStatementLineGroupFinancialDetailCollection" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="CusStatementLineGroupFinancialDetail" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:complexType>
+                                        <xs:all>
+                                          <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                          <xs:element name="Type" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
+                                          <xs:element name="Amount" minOccurs="0" type="xs:decimal" />
                                         </xs:all>
                                         <xs:attribute name="Action" type="Action" />
                                       </xs:complexType>
@@ -706,6 +802,31 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="AssociatedEntry" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="35" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CreditNote" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CreditNoteDate" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="DueDate" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="EntryDate" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="ImporterCustomsID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ScheduledProcessDate" minOccurs="0" type="emptiableDateTime" />
                   <xs:element name="CusStatementLineChargeCollection" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
@@ -721,6 +842,73 @@
                                 </xs:simpleType>
                               </xs:element>
                               <xs:element name="ChargeAmount" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="PaymentParty" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                            </xs:all>
+                            <xs:attribute name="Action" type="Action" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CusStatementLineGroupCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CusStatementLineGroup" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="ImporterCustomsID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Importer" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="12" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="CusStatementLineGroupFinancialDetailCollection" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CusStatementLineGroupFinancialDetail" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:all>
+                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                              <xs:element name="Type" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="Amount" minOccurs="0" type="xs:decimal" />
                             </xs:all>
                             <xs:attribute name="Action" type="Action" />
                           </xs:complexType>

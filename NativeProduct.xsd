@@ -223,7 +223,49 @@
       <xs:element name="WhsProductStyleSize" minOccurs="0">
         <xs:complexType>
           <xs:all>
+            <!-- Candidate Key: WhsProductStyle.PK + Size -->
+            <xs:element name="Size" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="5" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
             <xs:element name="PK" minOccurs="0" type="xs:string" />
+            <xs:element name="ProductStyle" minOccurs="0">
+              <xs:complexType>
+                <xs:all>
+                  <!-- Candidate Key: OrgHeader.PK + Code -->
+                  <xs:element name="Code" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="Owner" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="12" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+                <xs:attribute name="TableName" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
           </xs:all>
           <xs:attribute name="Action" type="Action" />
         </xs:complexType>
@@ -243,7 +285,32 @@
             <xs:element name="ProductStyle" minOccurs="0">
               <xs:complexType>
                 <xs:all>
+                  <!-- Candidate Key: OrgHeader.PK + Code -->
+                  <xs:element name="Code" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="Owner" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="12" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
                 </xs:all>
                 <xs:attribute name="Action" type="Action" />
                 <xs:attribute name="TableName" type="xs:string" />
@@ -884,6 +951,13 @@
                                               </xs:sequence>
                                             </xs:complexType>
                                           </xs:element>
+                                          <xs:element name="NAddInfoData" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="1024" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
                                           <xs:element name="AdditionalInformationGrandChildCollection" minOccurs="0">
                                             <xs:complexType>
                                               <xs:sequence>
@@ -913,6 +987,13 @@
                                                           </xs:sequence>
                                                         </xs:complexType>
                                                       </xs:element>
+                                                      <xs:element name="NAddInfoData" minOccurs="0">
+                                                        <xs:simpleType>
+                                                          <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="1024" />
+                                                          </xs:restriction>
+                                                        </xs:simpleType>
+                                                      </xs:element>
                                                       <xs:element name="AdditionalInformationGreatGrandChildCollection" minOccurs="0">
                                                         <xs:complexType>
                                                           <xs:sequence>
@@ -941,6 +1022,13 @@
                                                                         </xs:element>
                                                                       </xs:sequence>
                                                                     </xs:complexType>
+                                                                  </xs:element>
+                                                                  <xs:element name="NAddInfoData" minOccurs="0">
+                                                                    <xs:simpleType>
+                                                                      <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="1024" />
+                                                                      </xs:restriction>
+                                                                    </xs:simpleType>
                                                                   </xs:element>
                                                                 </xs:all>
                                                                 <xs:attribute name="Action" type="Action" />
@@ -1834,6 +1922,13 @@
                                   </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
+                              <xs:element name="NAddInfoData" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="1024" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
                               <xs:element name="AdditionalInformationGrandChildCollection" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1863,6 +1958,13 @@
                                               </xs:sequence>
                                             </xs:complexType>
                                           </xs:element>
+                                          <xs:element name="NAddInfoData" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="1024" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
                                           <xs:element name="AdditionalInformationGreatGrandChildCollection" minOccurs="0">
                                             <xs:complexType>
                                               <xs:sequence>
@@ -1891,6 +1993,13 @@
                                                             </xs:element>
                                                           </xs:sequence>
                                                         </xs:complexType>
+                                                      </xs:element>
+                                                      <xs:element name="NAddInfoData" minOccurs="0">
+                                                        <xs:simpleType>
+                                                          <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="1024" />
+                                                          </xs:restriction>
+                                                        </xs:simpleType>
                                                       </xs:element>
                                                     </xs:all>
                                                     <xs:attribute name="Action" type="Action" />
@@ -3621,7 +3730,7 @@
             <xs:element name="GenCustomAddOnValue" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:all>
-                  <!-- Candidate Key: OrgSupplierPart.PK + ParentTableCode + Name -->
+                  <!-- Candidate Key: OrgSupplierPart.PK + ParentTableCode + Name + Type -->
                   <xs:element name="PK" minOccurs="0" type="xs:string" />
                   <xs:element name="Name" minOccurs="0">
                     <xs:simpleType>

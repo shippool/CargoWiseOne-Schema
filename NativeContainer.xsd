@@ -388,6 +388,52 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="RefContainerCodeMapCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RefContainerCodeMap" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <!-- Candidate Key: RefCountry.Code + Usage + RefContainer.PK -->
+                  <xs:element name="PK" minOccurs="0" type="xs:string" />
+                  <xs:element name="Usage" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Code" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Country" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="2" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:all>
     <xs:attribute name="Action" type="Action" />
   </xs:complexType>

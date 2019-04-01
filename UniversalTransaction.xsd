@@ -505,6 +505,14 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+
+      <xs:element name="RatingBasisCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RatingBasis" minOccurs="0" maxOccurs="unbounded" type="RatingBasis" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:all>
   </xs:complexType>
 
