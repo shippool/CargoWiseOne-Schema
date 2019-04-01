@@ -3671,16 +3671,6 @@
                                   <xs:restriction base="xs:string" />
                                 </xs:simpleType>
                               </xs:element>
-                              <xs:element name="ClearedReason" minOccurs="0">
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string" />
-                                </xs:simpleType>
-                              </xs:element>
-                              <xs:element name="ExcludedLists" minOccurs="0">
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string" />
-                                </xs:simpleType>
-                              </xs:element>
                               <xs:element name="HighConfidenceResults" minOccurs="0">
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string" />
@@ -3688,6 +3678,16 @@
                               </xs:element>
                               <xs:element name="LowConfidenceResultsCount" minOccurs="0" type="xs:int" />
                               <xs:element name="MediumConfidenceResults" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string" />
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ClearedReason" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string" />
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ExcludedLists" minOccurs="0">
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string" />
                                 </xs:simpleType>

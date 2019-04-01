@@ -702,6 +702,7 @@
             <xs:element name="RefLocoMap" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:all>
+                  <!-- Candidate Key: LocalPortCode + RefUNLOCO.Code + SystemUsage + RefCountry.PK -->
                   <xs:element name="PK" minOccurs="0" type="xs:string" />
                   <xs:element name="LocalPortCode" minOccurs="0">
                     <xs:simpleType>
@@ -717,6 +718,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="IsSystem" minOccurs="0" type="xs:boolean" />
                   <xs:element name="LocoPort" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
