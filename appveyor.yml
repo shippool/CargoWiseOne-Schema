@@ -39,7 +39,6 @@ before_build:
 - cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalTransaction UniversalTransaction.xsd UniversalShipment.xsd UniversalCommon.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalTransactionBatch UniversalTransactionBatch.xsd UniversalTransaction.xsd UniversalShipment.xsd UniversalCommon.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalTransactionBatchRequest UniversalTransactionBatchRequest.xsd UniversalCommon.xsd
-- cmd: PowerShell -Version 2.0 csc -target:library -out:CargoWiseOneSchema.dll -warn:0 -nologo -debug *.cs
 
 artifacts:
   - path: CargoWiseOneSchema.dll
