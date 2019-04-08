@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>CargoWiseOneSchema</id>
+        <version>$version$</version>
+        <title>CargoWiseOneSchema</title>
+        <authors>George Kroon</authors>
+        <owners>George Kroon</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>CargoWise XSD's converted to classes</description>
+        <language>en-US</language>
+        <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/GefcoOVS/CargoWiseOne-Schema</projectUrl>
+        <tags>C# CargoWise</tags>
+    </metadata>
+    <files>
+        <file src=".\bin\Release\CargoWise_Schema.dll" target="content" />
+    </files>
+</package>

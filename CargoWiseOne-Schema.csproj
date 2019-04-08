@@ -1,15 +1,25 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <AssemblyName>CargoWiseOneSchema</AssemblyName>
-    <OutputPath>bin\</OutputPath>
+    <AssemblyName>CargoWise_Schema</AssemblyName>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+	<DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+
 
   <ItemGroup>
     <Compile Include="*.cs" />
   </ItemGroup>
   <Target Name="Build">
     <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
-    <Csc Sources="@(Compile)" TargetType="library" OutputAssembly="$(OutputPath)$(AssemblyName).dll" /> 
+    <Csc Sources="@(Compile)" TargetType="library" OutputAssembly="$(OutputPath)$(AssemblyName).dll" />
   </Target>
+
 </Project>
