@@ -1,6 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk.Web" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>CargoWiseOne_Schema</RootNamespace>
+    <OutputType>Library</OutputType>
+    <AssemblyName>CargoWise_Schema</AssemblyName>
+    <OutputPath>bin\</OutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="*.cs" />
+  </ItemGroup>
+  <Target Name="Build">
+    <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
+    <Csc Sources="@(Compile)" TargetType="library" OutputAssembly="$(OutputPath)$(AssemblyName).dll" /> 
+  </Target>
 </Project>
