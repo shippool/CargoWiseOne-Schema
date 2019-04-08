@@ -41,4 +41,4 @@ before_build:
 - cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalTransactionBatchRequest UniversalTransactionBatchRequest.xsd UniversalCommon.xsd
 
 artifacts:
-  - path: CargoWiseOneSchema.dll
+  - path: bin\CargoWiseOneSchema.dll
