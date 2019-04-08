@@ -46,7 +46,6 @@ artifacts:
   
 deploy:
   provider: NuGet
-  server:                  # remove to push to NuGet.org
   api_key:
     secure: 9SQ6V+azq2ydtFIibdyMx+3NiTElfxbH4VREQNOdT3m0zx4qbFkb4e+toMzcyzL9
   artifact: /.*\.nupkg/
