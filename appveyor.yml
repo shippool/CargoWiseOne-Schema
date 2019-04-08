@@ -46,6 +46,7 @@ after_build:
 
 artifacts:
   - path: bin\Release\CargoWiseSchema.dll
+  - path: '**\*.nupkg'
   
 deploy:
   provider: NuGet
