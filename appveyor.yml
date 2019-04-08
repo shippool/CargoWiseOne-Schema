@@ -4,7 +4,8 @@ version: "{build}"
 image: Visual Studio 2017
 environment:
   PATH: "C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v10.0A\\bin\\NETFX 4.7.2 Tools;C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319;$(PATH)"
-
+  my_variable:
+    secure: 9SQ6V+azq2ydtFIibdyMx+3NiTElfxbH4VREQNOdT3m0zx4qbFkb4e+toMzcyzL9
 before_build:
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeAcceptabilityBand NativeAcceptabilityBand.xsd Native.xsd UniversalCommon.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeAirline NativeAirline.xsd Native.xsd UniversalCommon.xsd
@@ -42,3 +43,10 @@ before_build:
 
 artifacts:
   - path: bin\CargoWiseOneSchema.dll
+  
+deploy:
+  provider: NuGet
+  server:                  # remove to push to NuGet.org
+  api_key:
+    secure: 9SQ6V+azq2ydtFIibdyMx+3NiTElfxbH4VREQNOdT3m0zx4qbFkb4e+toMzcyzL9
+  artifact: /.*\.nupkg/
