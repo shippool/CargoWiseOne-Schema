@@ -1,5 +1,5 @@
 $root = Join-Path (split-path -parent $MyInvocation.MyCommand.Definition) '\..'
-$version = [System.Reflection.Assembly]::LoadFile("$root\cargowiseone-schema\bin\Release\CargoWiseSchema.dll").GetName().Version
+$version = [System.Reflection.Assembly]::LoadFile("$root\cargowiseone-schema\lib\CargoWiseSchema.dll").GetName().Version
 $versionStr = "{0}.{1}.{2}" -f ($version.Major, $version.Minor, $version.Build)
 
 Write-Host "Setting .nuspec version tag to $versionStr" -ForegroundColor Green

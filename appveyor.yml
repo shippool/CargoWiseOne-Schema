@@ -45,7 +45,7 @@ after_build:
   - ps: .\NuGetPack.ps1
 
 artifacts:
-  - path: bin\Release\CargoWiseSchema.dll
+  - path: lib\CargoWiseSchema.dll
   - path: '**\*.nupkg'
   
 deploy:
