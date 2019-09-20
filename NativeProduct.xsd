@@ -169,6 +169,20 @@
       <xs:element name="IsComponentPickedOnSalesOrder" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsBarcoded" minOccurs="0" type="xs:boolean" />
       <xs:element name="KitIsAutoReplenished" minOccurs="0" type="xs:boolean" />
+      <xs:element name="OP_Brand" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OP_Model" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="CommodityCode" minOccurs="0">
         <xs:complexType>
           <xs:all>
@@ -426,6 +440,13 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="ValuationMarkup" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="CI_UsageComment" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="200" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="OrgHeader" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -723,6 +744,13 @@
                                 </xs:simpleType>
                               </xs:element>
                               <xs:element name="ValuationMarkup" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="CI_UsageComment" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
                               <xs:element name="CusClassification" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>
@@ -3429,6 +3457,8 @@
                   <xs:element name="ReplenishMinimum" minOccurs="0" type="xs:decimal" />
                   <xs:element name="ReplenishMaximum" minOccurs="0" type="xs:decimal" />
                   <xs:element name="ReplenishmentMultiple" minOccurs="0" type="xs:decimal" />
+                  <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
                   <xs:element name="WhsLocation" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
