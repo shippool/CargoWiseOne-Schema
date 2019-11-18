@@ -127,6 +127,13 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="ReleaseGroupFallbackMethod" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="OrgAddress" minOccurs="0">
         <xs:complexType>
           <xs:all>
@@ -418,6 +425,13 @@
                                 </xs:simpleType>
                               </xs:element>
                               <xs:element name="SourceTemplateNotification" minOccurs="0" type="xs:string" />
+                              <xs:element name="TriggerPartyService" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
                               <xs:element name="Document" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>
@@ -618,6 +632,22 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="AgreedDeliveryDateDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="AgreedDeliveryDateDefaultsFrom" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EarliestStartDateDefaultsFrom" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EarliestStartDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
                   <xs:element name="GlbGroup" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -685,6 +715,22 @@
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="AgreedDeliveryDateDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="AgreedDeliveryDateDefaultsFrom" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="EarliestStartDateDefaultsFrom" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="EarliestStartDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
                               <xs:element name="GlbGroup" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>
@@ -824,6 +870,22 @@
                                                     </xs:restriction>
                                                   </xs:simpleType>
                                                 </xs:element>
+                                                <xs:element name="AgreedDeliveryDateDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
+                                                <xs:element name="AgreedDeliveryDateDefaultsFrom" minOccurs="0">
+                                                  <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                      <xs:maxLength value="3" />
+                                                    </xs:restriction>
+                                                  </xs:simpleType>
+                                                </xs:element>
+                                                <xs:element name="EarliestStartDateDefaultsFrom" minOccurs="0">
+                                                  <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                      <xs:maxLength value="3" />
+                                                    </xs:restriction>
+                                                  </xs:simpleType>
+                                                </xs:element>
+                                                <xs:element name="EarliestStartDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
                                                 <xs:element name="GlbGroup" minOccurs="0">
                                                   <xs:complexType>
                                                     <xs:all>
@@ -908,6 +970,22 @@
                                                                 </xs:restriction>
                                                               </xs:simpleType>
                                                             </xs:element>
+                                                            <xs:element name="AgreedDeliveryDateDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
+                                                            <xs:element name="AgreedDeliveryDateDefaultsFrom" minOccurs="0">
+                                                              <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                  <xs:maxLength value="3" />
+                                                                </xs:restriction>
+                                                              </xs:simpleType>
+                                                            </xs:element>
+                                                            <xs:element name="EarliestStartDateDefaultsFrom" minOccurs="0">
+                                                              <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                  <xs:maxLength value="3" />
+                                                                </xs:restriction>
+                                                              </xs:simpleType>
+                                                            </xs:element>
+                                                            <xs:element name="EarliestStartDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
                                                             <xs:element name="GlbGroup" minOccurs="0">
                                                               <xs:complexType>
                                                                 <xs:all>
@@ -1434,6 +1512,13 @@
                                                                                       </xs:simpleType>
                                                                                     </xs:element>
                                                                                     <xs:element name="SourceTemplateNotification" minOccurs="0" type="xs:string" />
+                                                                                    <xs:element name="TriggerPartyService" minOccurs="0">
+                                                                                      <xs:simpleType>
+                                                                                        <xs:restriction base="xs:string">
+                                                                                          <xs:maxLength value="3" />
+                                                                                        </xs:restriction>
+                                                                                      </xs:simpleType>
+                                                                                    </xs:element>
                                                                                     <xs:element name="Document" minOccurs="0">
                                                                                       <xs:complexType>
                                                                                         <xs:all>
@@ -2093,6 +2178,13 @@
                                                         </xs:simpleType>
                                                       </xs:element>
                                                       <xs:element name="SourceTemplateNotification" minOccurs="0" type="xs:string" />
+                                                      <xs:element name="TriggerPartyService" minOccurs="0">
+                                                        <xs:simpleType>
+                                                          <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="3" />
+                                                          </xs:restriction>
+                                                        </xs:simpleType>
+                                                      </xs:element>
                                                       <xs:element name="Document" minOccurs="0">
                                                         <xs:complexType>
                                                           <xs:all>
@@ -2460,6 +2552,22 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="AgreedDeliveryDateDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="AgreedDeliveryDateDefaultsFrom" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EarliestStartDateDefaultsFrom" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EarliestStartDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
                   <xs:element name="GlbGroup" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -2978,6 +3086,13 @@
                                             </xs:simpleType>
                                           </xs:element>
                                           <xs:element name="SourceTemplateNotification" minOccurs="0" type="xs:string" />
+                                          <xs:element name="TriggerPartyService" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
                                           <xs:element name="Document" minOccurs="0">
                                             <xs:complexType>
                                               <xs:all>
@@ -3609,6 +3724,13 @@
                                 </xs:simpleType>
                               </xs:element>
                               <xs:element name="SourceTemplateNotification" minOccurs="0" type="xs:string" />
+                              <xs:element name="TriggerPartyService" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
                               <xs:element name="Document" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>
@@ -3871,6 +3993,22 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="AgreedDeliveryDateDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="AgreedDeliveryDateDefaultsFrom" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EarliestStartDateDefaultsFrom" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EarliestStartDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
                   <xs:element name="ReleaseGroup" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -3964,6 +4102,22 @@
                                         </xs:restriction>
                                       </xs:simpleType>
                                     </xs:element>
+                                    <xs:element name="AgreedDeliveryDateDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
+                                    <xs:element name="AgreedDeliveryDateDefaultsFrom" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="EarliestStartDateDefaultsFrom" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="EarliestStartDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
                                     <xs:element name="Template" minOccurs="0">
                                       <xs:complexType>
                                         <xs:all>
@@ -4078,6 +4232,22 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="AgreedDeliveryDateDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="AgreedDeliveryDateDefaultsFrom" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EarliestStartDateDefaultsFrom" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EarliestStartDefaultHoursOffset" minOccurs="0" type="emptiableDateTime" />
                   <xs:element name="ReleaseGroup" minOccurs="0">
                     <xs:complexType>
                       <xs:all>

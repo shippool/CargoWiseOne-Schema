@@ -20,6 +20,7 @@ before_build:
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeOrganization NativeOrganization.xsd Native.xsd UniversalCommon.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeProduct NativeProduct.xsd Native.xsd UniversalCommon.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeRate NativeRate.xsd Native.xsd UniversalCommon.xsd
+- cmd: PowerShell -Version 2.0 xsd /classes /n:NativeRequest NativeRequest.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeServiceLevel NativeServiceLevel.xsd Native.xsd UniversalCommon.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeStaff NativeStaff.xsd Native.xsd UniversalCommon.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeTag NativeTag.xsd Native.xsd UniversalCommon.xsd

@@ -45,6 +45,42 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
+              <xs:element name="DeliveryMetadata" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ValueCollection" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Value" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Name" type="xs:string" />
+                                <xs:element name="Type">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:enumeration value="String" />
+                                      <xs:enumeration value="DateTime" />
+                                      <xs:enumeration value="Integer" />
+                                      <xs:enumeration value="Decimal" />
+                                      <xs:enumeration value="Byte" />
+                                      <xs:enumeration value="Boolean" />
+                                      <xs:enumeration value="Short" />
+                                      <xs:enumeration value="DateTimeOffset" />
+                                      <xs:enumeration value="Geography" />
+                                      <xs:enumeration value="Base64Binary" />
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="Data" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

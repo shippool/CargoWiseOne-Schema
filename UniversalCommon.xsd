@@ -1242,6 +1242,13 @@
 
   <xs:complexType name="OriginalReference">
     <xs:all>
+      <xs:element name="OriginalTransactionComplianceSubType" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="OriginalTransactionDate" minOccurs="0" type="emptiable_dateTime" />
       <xs:element name="OriginalTransactionJobInvoiceNumber" minOccurs="0">
         <xs:simpleType>
@@ -1254,6 +1261,13 @@
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:maxLength value="38" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OriginalTransactionReference" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1426,8 +1440,8 @@
             <xs:enumeration value="SPM" />
             <xs:enumeration value="SRP" />
             <xs:enumeration value="TPC" />
-            <xs:enumeration value="TWD" />
-            <xs:enumeration value="TWR" />
+            <xs:enumeration value="DTW" />
+            <xs:enumeration value="ATW" />
             <xs:enumeration value="UAM" />
             <xs:enumeration value="WAR" />
             <xs:enumeration value="WIN" />
@@ -1454,6 +1468,8 @@
             <xs:enumeration value="BRQ" />
             <xs:enumeration value="HLD" />
             <xs:enumeration value="SIN" />
+            <xs:enumeration value="TWD" />
+            <xs:enumeration value="TWR" />
             <xs:enumeration value="VGM" />
           </xs:restriction>
         </xs:simpleType>

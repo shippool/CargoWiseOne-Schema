@@ -1,0 +1,61 @@
+<xs:schema targetNamespace="http://www.cargowise.com/Schemas/Native" version="2.0" elementFormDefault="qualified" xmlns="http://www.cargowise.com/Schemas/Native" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Native">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Body">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice>
+                <xs:element name="AcceptabilityBand" type="CriteriaData" />
+                <xs:element name="Airline" type="CriteriaData" />
+                <xs:element name="BMSystem" type="CriteriaData" />
+                <xs:element name="CommodityCode" type="CriteriaData" />
+                <xs:element name="Company" type="CriteriaData" />
+                <xs:element name="Container" type="CriteriaData" />
+                <xs:element name="Country" type="CriteriaData" />
+                <xs:element name="CurrencyExchangeRate" type="CriteriaData" />
+                <xs:element name="CusStatement" type="CriteriaData" />
+                <xs:element name="DangerousGood" type="CriteriaData" />
+                <xs:element name="Organization" type="CriteriaData" />
+                <xs:element name="Product" type="CriteriaData" />
+                <xs:element name="Rate" type="CriteriaData" />
+                <xs:element name="ServiceLevel" type="CriteriaData" />
+                <xs:element name="Staff" type="CriteriaData" />
+                <xs:element name="Tag" type="CriteriaData" />
+                <xs:element name="TagRule" type="CriteriaData" />
+                <xs:element name="UNLOCO" type="CriteriaData" />
+                <xs:element name="Vessel" type="CriteriaData" />
+                <xs:element name="WorkflowTemplate" type="CriteriaData" />
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CriteriaData">
+    <xs:all>
+      <xs:element name="CriteriaGroup" type="CriteriaGroupType" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="CriteriaGroupType">
+    <xs:sequence>
+      <xs:element type="CriteriaType" name="Criteria" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute type="TypeEnum" name="Type" use="required" />
+  </xs:complexType>
+  <xs:complexType name="CriteriaType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="Entity" use="required" />
+        <xs:attribute type="xs:string" name="FieldName" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="TypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Key" />
+      <xs:enumeration value="Partial" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

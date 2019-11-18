@@ -132,20 +132,6 @@
       <xs:element name="CustomDate4" minOccurs="0" type="emptiableDateTime" />
       <xs:element name="CustomDate5" minOccurs="0" type="emptiableDateTime" />
       <xs:element name="NetWeight" minOccurs="0" type="xs:decimal" />
-      <xs:element name="Brand" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="Model" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
       <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
       <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
       <xs:element name="IsResource" minOccurs="0" type="xs:boolean" />
@@ -169,19 +155,139 @@
       <xs:element name="IsComponentPickedOnSalesOrder" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsBarcoded" minOccurs="0" type="xs:boolean" />
       <xs:element name="KitIsAutoReplenished" minOccurs="0" type="xs:boolean" />
-      <xs:element name="OP_Brand" minOccurs="0">
+      <xs:element name="Brand" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:maxLength value="50" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="OP_Model" minOccurs="0">
+      <xs:element name="Model" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:maxLength value="50" />
           </xs:restriction>
         </xs:simpleType>
+      </xs:element>
+      <xs:element name="ProductStyleColour" minOccurs="0">
+        <xs:complexType>
+          <xs:all>
+            <!-- Candidate Key: WhsProductStyle.PK + Code -->
+            <xs:element name="Description" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="128" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Code" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="3" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="ColourProductStyle" minOccurs="0">
+              <xs:complexType>
+                <xs:all>
+                  <!-- Candidate Key: OrgHeader.PK + Code -->
+                  <xs:element name="Code" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Description" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Owner" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="12" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+                <xs:attribute name="TableName" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+          <xs:attribute name="Action" type="Action" />
+          <xs:attribute name="TableName" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ProductStyleSize" minOccurs="0">
+        <xs:complexType>
+          <xs:all>
+            <!-- Candidate Key: WhsProductStyle.PK + Size -->
+            <xs:element name="Sequence" minOccurs="0" type="xs:short" />
+            <xs:element name="Size" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="5" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="SizeProductStyle" minOccurs="0">
+              <xs:complexType>
+                <xs:all>
+                  <!-- Candidate Key: OrgHeader.PK + Code -->
+                  <xs:element name="Code" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Description" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="128" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Owner" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="12" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:all>
+                <xs:attribute name="Action" type="Action" />
+                <xs:attribute name="TableName" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+          <xs:attribute name="Action" type="Action" />
+          <xs:attribute name="TableName" type="xs:string" />
+        </xs:complexType>
       </xs:element>
       <xs:element name="CommodityCode" minOccurs="0">
         <xs:complexType>
@@ -232,106 +338,6 @@
           </xs:all>
           <xs:attribute name="Action" type="Action" />
           <xs:attribute name="TableName" type="xs:string" />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="WhsProductStyleSize" minOccurs="0">
-        <xs:complexType>
-          <xs:all>
-            <!-- Candidate Key: WhsProductStyle.PK + Size -->
-            <xs:element name="Size" minOccurs="0">
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:maxLength value="5" />
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="PK" minOccurs="0" type="xs:string" />
-            <xs:element name="ProductStyle" minOccurs="0">
-              <xs:complexType>
-                <xs:all>
-                  <!-- Candidate Key: OrgHeader.PK + Code -->
-                  <xs:element name="Code" minOccurs="0">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:maxLength value="20" />
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                  <xs:element name="PK" minOccurs="0" type="xs:string" />
-                  <xs:element name="Owner" minOccurs="0">
-                    <xs:complexType>
-                      <xs:all>
-                        <!-- Candidate Key: Code -->
-                        <xs:element name="Code" minOccurs="0">
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:maxLength value="12" />
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="PK" minOccurs="0" type="xs:string" />
-                      </xs:all>
-                      <xs:attribute name="Action" type="Action" />
-                      <xs:attribute name="TableName" type="xs:string" />
-                    </xs:complexType>
-                  </xs:element>
-                </xs:all>
-                <xs:attribute name="Action" type="Action" />
-                <xs:attribute name="TableName" type="xs:string" />
-              </xs:complexType>
-            </xs:element>
-          </xs:all>
-          <xs:attribute name="Action" type="Action" />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="WhsProductStyleColour" minOccurs="0">
-        <xs:complexType>
-          <xs:all>
-            <!-- Candidate Key: WhsProductStyle.PK + Code -->
-            <xs:element name="Code" minOccurs="0">
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:maxLength value="3" />
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="PK" minOccurs="0" type="xs:string" />
-            <xs:element name="ProductStyle" minOccurs="0">
-              <xs:complexType>
-                <xs:all>
-                  <!-- Candidate Key: OrgHeader.PK + Code -->
-                  <xs:element name="Code" minOccurs="0">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:maxLength value="20" />
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                  <xs:element name="PK" minOccurs="0" type="xs:string" />
-                  <xs:element name="Owner" minOccurs="0">
-                    <xs:complexType>
-                      <xs:all>
-                        <!-- Candidate Key: Code -->
-                        <xs:element name="Code" minOccurs="0">
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:maxLength value="12" />
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="PK" minOccurs="0" type="xs:string" />
-                      </xs:all>
-                      <xs:attribute name="Action" type="Action" />
-                      <xs:attribute name="TableName" type="xs:string" />
-                    </xs:complexType>
-                  </xs:element>
-                </xs:all>
-                <xs:attribute name="Action" type="Action" />
-                <xs:attribute name="TableName" type="xs:string" />
-              </xs:complexType>
-            </xs:element>
-          </xs:all>
-          <xs:attribute name="Action" type="Action" />
         </xs:complexType>
       </xs:element>
       <xs:element name="CusClassPartPivotCollection" minOccurs="0">
@@ -387,13 +393,6 @@
                   </xs:element>
                   <xs:element name="ChildQty" minOccurs="0" type="xs:decimal" />
                   <xs:element name="ChildListOrder" minOccurs="0" type="xs:short" />
-                  <xs:element name="UsageComment" minOccurs="0">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:maxLength value="35" />
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
                   <xs:element name="TariffChangePending" minOccurs="0" type="xs:boolean" />
                   <xs:element name="SupplementalTariff" minOccurs="0">
                     <xs:simpleType>
@@ -440,10 +439,17 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="ValuationMarkup" minOccurs="0" type="xs:decimal" />
-                  <xs:element name="CI_UsageComment" minOccurs="0">
+                  <xs:element name="UsageComment" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="200" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NAddInfo" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1024" />
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
@@ -601,7 +607,7 @@
                   <xs:element name="TaxType" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
-                        <!-- Candidate Key: RefDbEntZZ_RefDataGrouping.DataGrouping + Code + StartDate -->
+                        <!-- Candidate Key: RefDbEntZZ_RefDataGrouping.DataGrouping + Code + StartDate + EndDate -->
                         <xs:element name="DataGrouping" minOccurs="0">
                           <xs:simpleType>
                             <xs:restriction base="xs:string" />
@@ -615,6 +621,7 @@
                           </xs:simpleType>
                         </xs:element>
                         <xs:element name="StartDate" minOccurs="0" type="emptiableDateTime" />
+                        <xs:element name="EndDate" minOccurs="0" type="emptiableDateTime" />
                         <xs:element name="PK" minOccurs="0" type="xs:string" />
                         <xs:element name="DataGroupingExternal" minOccurs="0">
                           <xs:complexType>
@@ -691,13 +698,6 @@
                               </xs:element>
                               <xs:element name="ChildQty" minOccurs="0" type="xs:decimal" />
                               <xs:element name="ChildListOrder" minOccurs="0" type="xs:short" />
-                              <xs:element name="UsageComment" minOccurs="0">
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:maxLength value="35" />
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
                               <xs:element name="TariffChangePending" minOccurs="0" type="xs:boolean" />
                               <xs:element name="SupplementalTariff" minOccurs="0">
                                 <xs:simpleType>
@@ -744,10 +744,17 @@
                                 </xs:simpleType>
                               </xs:element>
                               <xs:element name="ValuationMarkup" minOccurs="0" type="xs:decimal" />
-                              <xs:element name="CI_UsageComment" minOccurs="0">
+                              <xs:element name="UsageComment" minOccurs="0">
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string">
                                     <xs:maxLength value="200" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="NAddInfo" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="1024" />
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
@@ -897,7 +904,7 @@
                               <xs:element name="TaxType" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>
-                                    <!-- Candidate Key: RefDbEntZZ_RefDataGrouping.DataGrouping + Code + StartDate -->
+                                    <!-- Candidate Key: RefDbEntZZ_RefDataGrouping.DataGrouping + Code + StartDate + EndDate -->
                                     <xs:element name="DataGrouping" minOccurs="0">
                                       <xs:simpleType>
                                         <xs:restriction base="xs:string" />
@@ -911,6 +918,7 @@
                                       </xs:simpleType>
                                     </xs:element>
                                     <xs:element name="StartDate" minOccurs="0" type="emptiableDateTime" />
+                                    <xs:element name="EndDate" minOccurs="0" type="emptiableDateTime" />
                                     <xs:element name="PK" minOccurs="0" type="xs:string" />
                                     <xs:element name="DataGroupingExternal" minOccurs="0">
                                       <xs:complexType>
@@ -1101,7 +1109,7 @@
                                                       <xs:element name="Data" minOccurs="0">
                                                         <xs:simpleType>
                                                           <xs:restriction base="xs:string">
-                                                            <xs:maxLength value="100" />
+                                                            <xs:maxLength value="350" />
                                                           </xs:restriction>
                                                         </xs:simpleType>
                                                       </xs:element>
@@ -1770,6 +1778,13 @@
                                                               </xs:simpleType>
                                                             </xs:element>
                                                             <xs:element name="CountryDefault" minOccurs="0" type="xs:boolean" />
+                                                            <xs:element name="UnSignedCustomsRegNo" minOccurs="0">
+                                                              <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                  <xs:maxLength value="254" />
+                                                                </xs:restriction>
+                                                              </xs:simpleType>
+                                                            </xs:element>
                                                             <xs:element name="CodeCountry" minOccurs="0">
                                                               <xs:complexType>
                                                                 <xs:all>
@@ -1901,7 +1916,7 @@
                                           <xs:element name="Data" minOccurs="0">
                                             <xs:simpleType>
                                               <xs:restriction base="xs:string">
-                                                <xs:maxLength value="100" />
+                                                <xs:maxLength value="350" />
                                               </xs:restriction>
                                             </xs:simpleType>
                                           </xs:element>
@@ -2072,7 +2087,7 @@
                                           <xs:element name="Data" minOccurs="0">
                                             <xs:simpleType>
                                               <xs:restriction base="xs:string">
-                                                <xs:maxLength value="100" />
+                                                <xs:maxLength value="350" />
                                               </xs:restriction>
                                             </xs:simpleType>
                                           </xs:element>
@@ -2187,6 +2202,7 @@
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="DateOfExpiry" minOccurs="0" type="emptiableDateTime" />
                               <xs:element name="CountryCode" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>
@@ -2860,6 +2876,13 @@
                                                   </xs:simpleType>
                                                 </xs:element>
                                                 <xs:element name="CountryDefault" minOccurs="0" type="xs:boolean" />
+                                                <xs:element name="UnSignedCustomsRegNo" minOccurs="0">
+                                                  <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                      <xs:maxLength value="254" />
+                                                    </xs:restriction>
+                                                  </xs:simpleType>
+                                                </xs:element>
                                                 <xs:element name="CodeCountry" minOccurs="0">
                                                   <xs:complexType>
                                                     <xs:all>
@@ -3033,7 +3056,7 @@
                               <xs:element name="Data" minOccurs="0">
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string">
-                                    <xs:maxLength value="100" />
+                                    <xs:maxLength value="350" />
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>

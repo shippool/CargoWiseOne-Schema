@@ -122,6 +122,7 @@
             <xs:enumeration value="PIA" />
             <xs:enumeration value="DPC" />
             <xs:enumeration value="CUS" />
+            <xs:enumeration value="EWK" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>

@@ -328,13 +328,7 @@
       <xs:element name="LockoutDateTime_UTC" minOccurs="0" type="emptiableDateTime" />
       <xs:element name="ProfilePhoto" minOccurs="0" type="xs:base64Binary" />
       <xs:element name="IsActivityLogged" minOccurs="0" type="xs:boolean" />
-      <xs:element name="Gender" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="1" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+      <xs:element name="Gender" minOccurs="0" type="xs:boolean" />
       <xs:element name="ActiveDirectoryObjectGuid" minOccurs="0" type="xs:string" />
       <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
       <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
@@ -380,14 +374,6 @@
       <xs:element name="IsDevice" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsDatabaseDeveloper" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsOperational" minOccurs="0" type="xs:boolean" />
-      <xs:element name="HashedPassword" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="88" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="HashedPasswordIterations" minOccurs="0" type="xs:int" />
       <xs:element name="IsTwoFactorAuthenticationEnabled" minOccurs="0" type="xs:boolean" />
       <xs:element name="CanLogin" minOccurs="0" type="xs:boolean" />
       <xs:element name="AddressMap" minOccurs="0">
@@ -405,6 +391,16 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="IsDriver" minOccurs="0" type="xs:boolean" />
+      <xs:element name="ActivityTrackingStatus" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PasswordHash" minOccurs="0" type="xs:base64Binary" />
+      <xs:element name="PasswordHashIterations" minOccurs="0" type="xs:int" />
+      <xs:element name="PasswordSalt" minOccurs="0" type="xs:base64Binary" />
       <xs:element name="HomeBranch" minOccurs="0">
         <xs:complexType>
           <xs:all>
@@ -682,13 +678,6 @@
               <xs:complexType>
                 <xs:all>
                   <xs:element name="PK" minOccurs="0" type="xs:string" />
-                  <xs:element name="Comment" minOccurs="0">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:maxLength value="50" />
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
                   <xs:element name="RefNumber" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -712,7 +701,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="XZ_Comment" minOccurs="0">
+                  <xs:element name="Comment" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="50" />

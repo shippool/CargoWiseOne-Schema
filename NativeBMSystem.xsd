@@ -94,6 +94,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="IsActive" minOccurs="0" type="xs:boolean" />
                 </xs:all>
                 <xs:attribute name="Action" type="Action" />
               </xs:complexType>
@@ -770,6 +771,8 @@
                                         </xs:restriction>
                                       </xs:simpleType>
                                     </xs:element>
+                                    <xs:element name="GridColourLayoutID" minOccurs="0" type="xs:string" />
+                                    <xs:element name="SaveGridColourLayout" minOccurs="0" type="xs:boolean" />
                                     <xs:element name="GlbCompany" minOccurs="0">
                                       <xs:complexType>
                                         <xs:all>
@@ -1041,6 +1044,8 @@
                                         </xs:restriction>
                                       </xs:simpleType>
                                     </xs:element>
+                                    <xs:element name="GridColourLayoutID" minOccurs="0" type="xs:string" />
+                                    <xs:element name="SaveGridColourLayout" minOccurs="0" type="xs:boolean" />
                                     <xs:element name="GlbCompany" minOccurs="0">
                                       <xs:complexType>
                                         <xs:all>

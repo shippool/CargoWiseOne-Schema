@@ -192,6 +192,8 @@
       <xs:element name="CountryOfSupply" minOccurs="0" type="Country" />
       <xs:element name="CustomsBroker" minOccurs="0" type="Staff" />
       <xs:element name="CustomsContainerMode" minOccurs="0" type="ContainerMode" />
+      <xs:element name="CustomsDischargePort" minOccurs="0" type="CodeDescriptionPair10Char" />
+      <xs:element name="CustomsLoadPort" minOccurs="0" type="CodeDescriptionPair10Char" />
       <xs:element name="CustomsOffice" minOccurs="0" type="CodeDescriptionPair10Char" />
       <xs:element name="CustomsProfileIdentifier" minOccurs="0" type="ValueTypePair" />
       <xs:element name="CustomsValuationPort" minOccurs="0" type="CodeDescriptionPair" />
@@ -278,7 +280,7 @@
       </xs:element>
       <xs:element name="LocalTransportEquipmentNeeded" minOccurs="0" type="CodeDescriptionPair" />
       <xs:element name="LocalTransportJobType" minOccurs="0" type="CodeDescriptionPair4Char" />
-      <xs:element name="LocationAtClearance" minOccurs="0" type="CodeDescriptionPair10Char" />
+      <xs:element name="LocationAtClearance" minOccurs="0" type="CodeDescriptionPair35Char" />
       <xs:element name="ManifestedChargeable" minOccurs="0" type="xs:decimal" />
       <xs:element name="ManifestedVolume" minOccurs="0" type="xs:decimal" />
       <xs:element name="ManifestedWeight" minOccurs="0" type="xs:decimal" />
@@ -287,8 +289,8 @@
       <xs:element name="MessageSubType" minOccurs="0" type="CodeDescriptionPair" />
       <xs:element name="MessageType" minOccurs="0" type="CodeDescriptionPair" />
       <xs:element name="MessagingApplicationCode" minOccurs="0" type="CodeDescriptionPair" />
-      <xs:element name="NoCopyBills" minOccurs="0" type="xs:byte" />
-      <xs:element name="NoOriginalBills" minOccurs="0" type="xs:byte" />
+      <xs:element name="NoCopyBills" minOccurs="0" type="xs:unsignedByte" />
+      <xs:element name="NoOriginalBills" minOccurs="0" type="xs:unsignedByte" />
       <xs:element name="OperationalStatus" minOccurs="0" type="CodeDescriptionPair" />
       <xs:element name="OuterPacks" minOccurs="0" type="xs:int" />
       <xs:element name="OuterPacksPackageType" minOccurs="0" type="PackageType" />
@@ -978,7 +980,7 @@
             <xs:element name="InsuranceRequired" minOccurs="0" type="xs:boolean" />
             <xs:element name="IsContingencyRelease" minOccurs="0" type="xs:boolean" />
             <xs:element name="LCLAirStorageCharge" minOccurs="0" type="xs:decimal" />
-            <xs:element name="LCLAirStorageDaysOrHours" minOccurs="0" type="xs:byte" />
+            <xs:element name="LCLAirStorageDaysOrHours" minOccurs="0" type="xs:unsignedByte" />
             <xs:element name="LCLAvailable" minOccurs="0" type="emptiable_dateTime" />
             <xs:element name="LCLDatesOverrideConsol" minOccurs="0" type="xs:boolean" />
             <xs:element name="LCLStorageCommences" minOccurs="0" type="emptiable_dateTime" />
@@ -1042,7 +1044,7 @@
             <xs:element name="DropMode" minOccurs="0" type="DropMode" />
             <xs:element name="FulfillmentRule" minOccurs="0" type="CodeDescriptionPair" />
             <xs:element name="LocalCartageInsuranceValue" minOccurs="0" type="xs:decimal" />
-            <xs:element name="OrderNumberSplit" minOccurs="0" type="xs:byte" />
+            <xs:element name="OrderNumberSplit" minOccurs="0" type="xs:unsignedByte" />
             <xs:element name="PalletsSent" minOccurs="0" type="xs:short" />
             <xs:element name="PickOption" minOccurs="0" type="CodeDescriptionPair" />
             <xs:element name="RequiresPacking" minOccurs="0" type="xs:boolean" />
@@ -2340,6 +2342,7 @@
       <xs:element name="IsGSTApplicable" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsIncludedInITOT" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsNotIncludedInInvoice" minOccurs="0" type="xs:boolean" />
+      <xs:element name="IsStatisticalValueApplicable" minOccurs="0" type="xs:boolean" />
       <xs:element name="PercentageOfLinePrice" minOccurs="0" type="xs:decimal" />
       <xs:element name="PrepaidCollect" minOccurs="0" type="CodeDescriptionPair" />
     </xs:all>
@@ -2486,6 +2489,14 @@
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="ClassUsageComment" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="200" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ClassUsageCommentStaff" minOccurs="0" type="Staff" />
                               <xs:element name="Commodity" minOccurs="0" type="Commodity" />
                               <xs:element name="ConcessionOrder" minOccurs="0">
                                 <xs:simpleType>
@@ -2511,6 +2522,13 @@
                               <xs:element name="CustomsThirdQuantity" minOccurs="0" type="xs:decimal" />
                               <xs:element name="CustomsThirdQuantityUnit" minOccurs="0" type="CodeDescriptionPair" />
                               <xs:element name="CustomsValue" minOccurs="0" type="xs:decimal" />
+                              <xs:element name="DataImportMatchingKey" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="35" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
                               <xs:element name="Description" minOccurs="0">
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string">
@@ -2766,6 +2784,7 @@
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
+                      <xs:attribute name="Content" type="CollectionContent" />
                     </xs:complexType>
                   </xs:element>
 
@@ -2967,7 +2986,7 @@
       <xs:element name="Commodity" minOccurs="0" type="Commodity" />
       <xs:element name="ContainerCount" minOccurs="0" type="xs:int" />
       <xs:element name="ContainerDetentionCharge" minOccurs="0" type="xs:decimal" />
-      <xs:element name="ContainerDetentionDays" minOccurs="0" type="xs:byte" />
+      <xs:element name="ContainerDetentionDays" minOccurs="0" type="xs:unsignedByte" />
       <xs:element name="ContainerImportDORelease" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -3095,7 +3114,7 @@
       <xs:element name="FCLStorageArrivedUnderbond" minOccurs="0" type="xs:boolean" />
       <xs:element name="FCLStorageCharge" minOccurs="0" type="xs:decimal" />
       <xs:element name="FCLStorageCommences" minOccurs="0" type="emptiable_dateTime" />
-      <xs:element name="FCLStorageDays" minOccurs="0" type="xs:byte" />
+      <xs:element name="FCLStorageDays" minOccurs="0" type="xs:unsignedByte" />
       <xs:element name="FCLStorageModuleOnlyMaster" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -3127,7 +3146,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="HumidityPercent" minOccurs="0" type="xs:byte" />
+      <xs:element name="HumidityPercent" minOccurs="0" type="xs:unsignedByte" />
       <xs:element name="IsCFSRegistered" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsChargeable" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsControlledAtmosphere" minOccurs="0" type="xs:boolean" />
@@ -3494,6 +3513,7 @@
             <xs:enumeration value="ISFLastAccepted" />
             <xs:enumeration value="BillRequiredBy" />
             <xs:enumeration value="DateAtOffice" />
+            <xs:enumeration value="TransportBookingRequested" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -3725,6 +3745,14 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element name="AddInfo" minOccurs="0" maxOccurs="unbounded" type="AddInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AddInfoGroupCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AddInfoGroup" minOccurs="0" maxOccurs="unbounded" type="AddInfoGroup" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -4539,6 +4567,7 @@
       <xs:element name="Type" minOccurs="1" type="CodeDescriptionPair6Char" />
       <xs:element name="Amount" minOccurs="0" type="xs:decimal" />
       <xs:element name="BaseQuantity" minOccurs="0" type="xs:decimal" />
+      <xs:element name="BaseQuantityUQ" minOccurs="0" type="CodeDescriptionPair" />
       <xs:element name="BaseValue" minOccurs="0" type="xs:decimal" />
       <xs:element name="MethodOfCalculation" minOccurs="0" type="CodeDescriptionPair4Char" />
       <xs:element name="MethodOfPayment" minOccurs="0" type="CodeDescriptionPair" />
@@ -4550,7 +4579,7 @@
     <xs:all>
       <xs:element name="PortOfDischarge" minOccurs="0" type="UNLOCO" />
       <xs:element name="PortOfLoading" minOccurs="0" type="UNLOCO" />
-      <xs:element name="LegOrder" minOccurs="1" type="xs:byte" />
+      <xs:element name="LegOrder" minOccurs="1" type="xs:unsignedByte" />
       <xs:element name="ActualArrival" minOccurs="0" type="emptiable_dateTime" />
       <xs:element name="ActualArrivalInPortOfLoading" minOccurs="0" type="emptiable_dateTime" />
       <xs:element name="ActualDeparture" minOccurs="0" type="emptiable_dateTime" />
@@ -4873,7 +4902,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="NumberOfDoors" minOccurs="0" type="xs:byte" />
+      <xs:element name="NumberOfDoors" minOccurs="0" type="xs:unsignedByte" />
       <xs:element name="Transmission" minOccurs="0" type="CodeDescriptionPair" />
       <xs:element name="Year" minOccurs="0" type="xs:short" />
     </xs:all>
