@@ -45,7 +45,6 @@ after_build:
 
 artifacts:
   - path: lib\CargoWiseSchema.dll
-#  - path: '**\*.nupkg'
 
 deploy:
   - provider: GitHub
