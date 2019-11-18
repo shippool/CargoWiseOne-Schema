@@ -4,8 +4,6 @@ version: "{build}"
 image: Visual Studio 2017
 environment:
   PATH: "C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v10.0A\\bin\\NETFX 4.7.2 Tools;C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319;$(PATH)"
-  my_variable:
-    secure: 9SQ6V+azq2ydtFIibdyMx+3NiTElfxbH4VREQNOdT3m0zx4qbFkb4e+toMzcyzL9
 before_build:
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeAcceptabilityBand NativeAcceptabilityBand.xsd Native.xsd UniversalCommon.xsd
 - cmd: PowerShell -Version 2.0 xsd /classes /n:NativeAirline NativeAirline.xsd Native.xsd UniversalCommon.xsd
@@ -43,14 +41,21 @@ before_build:
 - cmd: PowerShell -Version 2.0 xsd /classes /n:UniversalTransactionBatchRequest UniversalTransactionBatchRequest.xsd UniversalCommon.xsd
 
 after_build:
-  - ps: .\NuGetPack.ps1
+#  - ps: .\NuGetPack.ps1
 
 artifacts:
   - path: lib\CargoWiseSchema.dll
-  - path: '**\*.nupkg'
-  
-#deploy:
-#  provider: NuGet
-#  api_key:
-#    secure: 9SQ6V+azq2ydtFIibdyMx+3NiTElfxbH4VREQNOdT3m0zx4qbFkb4e+toMzcyzL9
-#  artifact: /.*\.nupkg/
+#  - path: '**\*.nupkg'
+
+deploy:
+  - release: CW1_Schema-v$(appveyor_build_version)
+  - description: 'Release description'
+  - provider: GitHub
+  - auth_token:
+    - secure: /3Hdwmlh9Ktce6XxHeooYZ1A/gSc9dBMtIy7PrH4BO3f9DMNWq/eT5Zq0RYXAxH5 # your encrypted token from GitHub
+  - artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
+  - draft: false
+  - prerelease: false
+  - on:
+    - branch: master                 # release from master branch only
+    - APPVEYOR_REPO_TAG: true
