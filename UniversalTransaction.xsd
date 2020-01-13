@@ -448,6 +448,7 @@
           </xs:all>
         </xs:complexType>
       </xs:element>
+      <xs:element name="TaxDate" minOccurs="0" type="emptiable_date" />
       <xs:element name="TaxMessageID" minOccurs="0" type="TaxMessageID" />
       <xs:element name="TransactionCategory" minOccurs="0">
         <xs:simpleType>

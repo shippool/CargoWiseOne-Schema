@@ -247,6 +247,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="HouseBillOfLadingType" minOccurs="0" type="CodeDescriptionPair" />
       <xs:element name="InsuranceValue" minOccurs="0" type="xs:decimal" />
       <xs:element name="InsuranceValueCurrency" minOccurs="0" type="Currency" />
       <xs:element name="InterimReceiptNumber" minOccurs="0">
@@ -1444,6 +1445,14 @@
             <xs:element name="AdditionalReference" minOccurs="0" maxOccurs="unbounded" type="AdditionalReference" />
           </xs:sequence>
           <xs:attribute name="Content" type="CollectionContent" />
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AttachedDocumentCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AttachedDocument" minOccurs="0" maxOccurs="unbounded" type="AttachedDocument" />
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
 
@@ -3740,6 +3749,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="SubStyle" minOccurs="0" type="CodeDescriptionPair" />
 
       <xs:element name="AddInfoCollection" minOccurs="0">
         <xs:complexType>

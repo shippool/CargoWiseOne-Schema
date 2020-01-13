@@ -1060,7 +1060,7 @@
       <xs:element name="City" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="25" />
+            <xs:maxLength value="50" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1082,7 +1082,7 @@
       <xs:element name="Email" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="60" />
+            <xs:maxLength value="254" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1096,7 +1096,7 @@
       <xs:element name="GovRegNum" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="20" />
+            <xs:maxLength value="254" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1143,14 +1143,14 @@
       <xs:element name="UniversalNettingCode" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="254" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
       <xs:element name="UniversalOfficeCode" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="254" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1291,6 +1291,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="Contact" />
             <xs:enumeration value="Organization" />
+            <xs:enumeration value="Email" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1340,7 +1341,7 @@
       <xs:element name="OriginAdditionalReference" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="35" />
+            <xs:maxLength value="2000" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1396,6 +1397,7 @@
             <xs:enumeration value="BRI" />
             <xs:enumeration value="BRE" />
             <xs:enumeration value="BTP" />
+            <xs:enumeration value="CAP" />
             <xs:enumeration value="CAR" />
             <xs:enumeration value="CBA" />
             <xs:enumeration value="CCA" />
@@ -1417,6 +1419,7 @@
             <xs:enumeration value="DCY" />
             <xs:enumeration value="DTP" />
             <xs:enumeration value="FOR" />
+            <xs:enumeration value="GRP" />
             <xs:enumeration value="HCA" />
             <xs:enumeration value="HSA" />
             <xs:enumeration value="ICE" />
@@ -1439,6 +1442,7 @@
             <xs:enumeration value="SGA" />
             <xs:enumeration value="SPM" />
             <xs:enumeration value="SRP" />
+            <xs:enumeration value="STF" />
             <xs:enumeration value="TPC" />
             <xs:enumeration value="DTW" />
             <xs:enumeration value="ATW" />
