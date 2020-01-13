@@ -39,6 +39,13 @@
       <xs:element name="IsShipping" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsPersonalEffects" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsSystem" minOccurs="0" type="xs:boolean" />
+      <xs:element name="UniversalCommodityGroup" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="NMFC" minOccurs="0">
         <xs:complexType>
           <xs:all>

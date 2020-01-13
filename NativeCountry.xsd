@@ -251,6 +251,8 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="IsClientVisible" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="IsError" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="IsValidationRule" minOccurs="0" type="xs:boolean" />
                   <xs:element name="Destination" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -312,6 +314,8 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="IsClientVisible" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="IsError" minOccurs="0" type="xs:boolean" />
+                  <xs:element name="IsValidationRule" minOccurs="0" type="xs:boolean" />
                   <xs:element name="Origin" minOccurs="0">
                     <xs:complexType>
                       <xs:all>

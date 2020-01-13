@@ -624,6 +624,8 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
                 </xs:all>
                 <xs:attribute name="Action" type="Action" />
               </xs:complexType>

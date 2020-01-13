@@ -155,6 +155,7 @@
                         </xs:element>
                         <xs:element name="ImportMetaData" minOccurs="0" type="ImportMetaData" />
                         <xs:element name="IncludeOnCollectInvoice" minOccurs="0" type="xs:boolean" />
+                        <xs:element name="PlaceOfSupply" minOccurs="0" type="PlaceOfSupply" />
                         <xs:element name="PrepaidCollectFilter" minOccurs="0">
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
@@ -247,6 +248,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="HouseBillOfLadingType" minOccurs="0" type="CodeDescriptionPair" />
       <xs:element name="InsuranceValue" minOccurs="0" type="xs:decimal" />
       <xs:element name="InsuranceValueCurrency" minOccurs="0" type="Currency" />
       <xs:element name="InterimReceiptNumber" minOccurs="0">
@@ -1444,6 +1446,14 @@
             <xs:element name="AdditionalReference" minOccurs="0" maxOccurs="unbounded" type="AdditionalReference" />
           </xs:sequence>
           <xs:attribute name="Content" type="CollectionContent" />
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AttachedDocumentCollection" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AttachedDocument" minOccurs="0" maxOccurs="unbounded" type="AttachedDocument" />
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
 
@@ -3740,6 +3750,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="SubStyle" minOccurs="0" type="CodeDescriptionPair" />
 
       <xs:element name="AddInfoCollection" minOccurs="0">
         <xs:complexType>
@@ -4227,6 +4238,7 @@
             <xs:element name="PackedItem" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:all>
+                  <xs:element name="CIFValue" minOccurs="0" type="xs:decimal" />
                   <xs:element name="CommercialInvoiceLineLink" minOccurs="0" type="xs:int" />
                   <xs:element name="Description" minOccurs="0">
                     <xs:simpleType>
@@ -4238,6 +4250,13 @@
                   <xs:element name="GoodsValue" minOccurs="0" type="xs:decimal" />
                   <xs:element name="GrossWeight" minOccurs="0" type="xs:decimal" />
                   <xs:element name="GrossWeightUnit" minOccurs="0" type="UnitOfWeight" />
+                  <xs:element name="ItemSpecificationUrl" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="512" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="NetWeight" minOccurs="0" type="xs:decimal" />
                   <xs:element name="NetWeightUnit" minOccurs="0" type="UnitOfWeight" />
                   <xs:element name="OrderLineLink" minOccurs="0" type="xs:int" />

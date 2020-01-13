@@ -35,13 +35,6 @@
       </xs:element>
       <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
       <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
-      <xs:element name="ScreeningStatus" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="3" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
       <xs:element name="IsForwarder" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsShippingProvider" minOccurs="0" type="xs:boolean" />
       <xs:element name="IsAirWholesaler" minOccurs="0" type="xs:boolean" />
@@ -107,6 +100,13 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="ScreeningStatus" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="ClosestPort" minOccurs="0">
         <xs:complexType>
           <xs:all>
@@ -115,6 +115,30 @@
               <xs:simpleType>
                 <xs:restriction base="xs:string">
                   <xs:maxLength value="5" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="PK" minOccurs="0" type="xs:string" />
+          </xs:all>
+          <xs:attribute name="Action" type="Action" />
+          <xs:attribute name="TableName" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ShippingLine" minOccurs="0">
+        <xs:complexType>
+          <xs:all>
+            <!-- Candidate Key: CargoWiseOneCode + CarrierName -->
+            <xs:element name="CargoWiseOneCode" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="4" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="CarrierName" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:maxLength value="75" />
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
@@ -268,6 +292,8 @@
                   <xs:element name="PasswordHash" minOccurs="0" type="xs:base64Binary" />
                   <xs:element name="PasswordHashIterations" minOccurs="0" type="xs:int" />
                   <xs:element name="PasswordSalt" minOccurs="0" type="xs:base64Binary" />
+                  <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
                   <xs:element name="AddressOverride" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -969,6 +995,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="JobLoadingDuration" minOccurs="0" type="xs:int" />
                   <xs:element name="RelatedPortCode" minOccurs="0">
                     <xs:complexType>
                       <xs:all>

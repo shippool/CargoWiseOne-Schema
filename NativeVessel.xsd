@@ -48,13 +48,6 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="YearOfConstruction" minOccurs="0" type="xs:int" />
-      <xs:element name="ScreeningStatus" minOccurs="0">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="3" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
       <xs:element name="MalaysiaVesselId" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -63,6 +56,13 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="IsActive" minOccurs="0" type="xs:boolean" />
+      <xs:element name="ScreeningStatus" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="OrgHeader" minOccurs="0">
         <xs:complexType>
           <xs:all>

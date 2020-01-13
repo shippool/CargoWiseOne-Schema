@@ -303,6 +303,9 @@
                               <xs:element name="PK" minOccurs="0" type="xs:string" />
                               <xs:element name="IsConstrainedMode" minOccurs="0" type="xs:boolean" />
                               <xs:element name="AutoAssignTasksAge" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="NewTaskAdditionPenetrationThrottleFactor" minOccurs="0" type="xs:short" />
+                              <xs:element name="ResetTaskPenetrationInterGroup" minOccurs="0" type="xs:boolean" />
+                              <xs:element name="ResetTaskPenetrationIntraGroup" minOccurs="0" type="xs:boolean" />
                               <xs:element name="GlbGroup" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>

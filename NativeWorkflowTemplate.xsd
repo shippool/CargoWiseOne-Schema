@@ -333,6 +333,13 @@
                   <xs:element name="IsActive" minOccurs="0" type="xs:boolean" />
                   <xs:element name="SystemCreateTimeUtc" minOccurs="0" type="emptiableDateTime" />
                   <xs:element name="SystemLastEditTimeUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="TriggerContext" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="TriggerEvent" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -375,6 +382,81 @@
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
                               <xs:maxLength value="2" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="TriggerBranch" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="TriggerCompany" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="TriggerDepartment" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="_TriggerStaffCode" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code + LoginName -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="LoginName" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="104" />
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:element>
@@ -1250,6 +1332,14 @@
                                                                           </xs:simpleType>
                                                                         </xs:element>
                                                                         <xs:element name="TriggerFiredCountdown" minOccurs="0" type="xs:int" />
+                                                                        <xs:element name="PenetrationResetDateUtc" minOccurs="0" type="emptiableDateTime" />
+                                                                        <xs:element name="TriggerContext" minOccurs="0">
+                                                                          <xs:simpleType>
+                                                                            <xs:restriction base="xs:string">
+                                                                              <xs:maxLength value="3" />
+                                                                            </xs:restriction>
+                                                                          </xs:simpleType>
+                                                                        </xs:element>
                                                                         <xs:element name="GlbCapability" minOccurs="0">
                                                                           <xs:complexType>
                                                                             <xs:all>
@@ -1469,6 +1559,40 @@
                                                                               <xs:element name="PK" minOccurs="0" type="xs:string" />
                                                                             </xs:all>
                                                                             <xs:attribute name="Action" type="Action" />
+                                                                          </xs:complexType>
+                                                                        </xs:element>
+                                                                        <xs:element name="TriggerBranch" minOccurs="0">
+                                                                          <xs:complexType>
+                                                                            <xs:all>
+                                                                              <!-- Candidate Key: Code -->
+                                                                              <xs:element name="Code" minOccurs="0">
+                                                                                <xs:simpleType>
+                                                                                  <xs:restriction base="xs:string">
+                                                                                    <xs:maxLength value="3" />
+                                                                                  </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                              </xs:element>
+                                                                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                                                            </xs:all>
+                                                                            <xs:attribute name="Action" type="Action" />
+                                                                            <xs:attribute name="TableName" type="xs:string" />
+                                                                          </xs:complexType>
+                                                                        </xs:element>
+                                                                        <xs:element name="TriggerDepartment" minOccurs="0">
+                                                                          <xs:complexType>
+                                                                            <xs:all>
+                                                                              <!-- Candidate Key: Code -->
+                                                                              <xs:element name="Code" minOccurs="0">
+                                                                                <xs:simpleType>
+                                                                                  <xs:restriction base="xs:string">
+                                                                                    <xs:maxLength value="3" />
+                                                                                  </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                              </xs:element>
+                                                                              <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                                                            </xs:all>
+                                                                            <xs:attribute name="Action" type="Action" />
+                                                                            <xs:attribute name="TableName" type="xs:string" />
                                                                           </xs:complexType>
                                                                         </xs:element>
                                                                         <xs:element name="ProcessTaskNotification_RegularTriggersCollection" minOccurs="0">
@@ -1916,6 +2040,14 @@
                                             </xs:simpleType>
                                           </xs:element>
                                           <xs:element name="TriggerFiredCountdown" minOccurs="0" type="xs:int" />
+                                          <xs:element name="PenetrationResetDateUtc" minOccurs="0" type="emptiableDateTime" />
+                                          <xs:element name="TriggerContext" minOccurs="0">
+                                            <xs:simpleType>
+                                              <xs:restriction base="xs:string">
+                                                <xs:maxLength value="3" />
+                                              </xs:restriction>
+                                            </xs:simpleType>
+                                          </xs:element>
                                           <xs:element name="GlbCapability" minOccurs="0">
                                             <xs:complexType>
                                               <xs:all>
@@ -2135,6 +2267,40 @@
                                                 <xs:element name="PK" minOccurs="0" type="xs:string" />
                                               </xs:all>
                                               <xs:attribute name="Action" type="Action" />
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element name="TriggerBranch" minOccurs="0">
+                                            <xs:complexType>
+                                              <xs:all>
+                                                <!-- Candidate Key: Code -->
+                                                <xs:element name="Code" minOccurs="0">
+                                                  <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                      <xs:maxLength value="3" />
+                                                    </xs:restriction>
+                                                  </xs:simpleType>
+                                                </xs:element>
+                                                <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                              </xs:all>
+                                              <xs:attribute name="Action" type="Action" />
+                                              <xs:attribute name="TableName" type="xs:string" />
+                                            </xs:complexType>
+                                          </xs:element>
+                                          <xs:element name="TriggerDepartment" minOccurs="0">
+                                            <xs:complexType>
+                                              <xs:all>
+                                                <!-- Candidate Key: Code -->
+                                                <xs:element name="Code" minOccurs="0">
+                                                  <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                      <xs:maxLength value="3" />
+                                                    </xs:restriction>
+                                                  </xs:simpleType>
+                                                </xs:element>
+                                                <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                              </xs:all>
+                                              <xs:attribute name="Action" type="Action" />
+                                              <xs:attribute name="TableName" type="xs:string" />
                                             </xs:complexType>
                                           </xs:element>
                                           <xs:element name="ProcessTaskNotification_RegularTriggersCollection" minOccurs="0">
@@ -2824,6 +2990,14 @@
                                 </xs:simpleType>
                               </xs:element>
                               <xs:element name="TriggerFiredCountdown" minOccurs="0" type="xs:int" />
+                              <xs:element name="PenetrationResetDateUtc" minOccurs="0" type="emptiableDateTime" />
+                              <xs:element name="TriggerContext" minOccurs="0">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:maxLength value="3" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
                               <xs:element name="GlbCapability" minOccurs="0">
                                 <xs:complexType>
                                   <xs:all>
@@ -3043,6 +3217,40 @@
                                     <xs:element name="PK" minOccurs="0" type="xs:string" />
                                   </xs:all>
                                   <xs:attribute name="Action" type="Action" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="TriggerBranch" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="TriggerDepartment" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:all>
+                                    <!-- Candidate Key: Code -->
+                                    <xs:element name="Code" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:maxLength value="3" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PK" minOccurs="0" type="xs:string" />
+                                  </xs:all>
+                                  <xs:attribute name="Action" type="Action" />
+                                  <xs:attribute name="TableName" type="xs:string" />
                                 </xs:complexType>
                               </xs:element>
                               <xs:element name="ProcessTaskNotification_RegularTriggersCollection" minOccurs="0">
@@ -3454,6 +3662,14 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="TriggerFiredCountdown" minOccurs="0" type="xs:int" />
+                  <xs:element name="PenetrationResetDateUtc" minOccurs="0" type="emptiableDateTime" />
+                  <xs:element name="TriggerContext" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="GlbCapability" minOccurs="0">
                     <xs:complexType>
                       <xs:all>
@@ -3681,6 +3897,40 @@
                         <xs:element name="PK" minOccurs="0" type="xs:string" />
                       </xs:all>
                       <xs:attribute name="Action" type="Action" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="TriggerBranch" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="TriggerDepartment" minOccurs="0">
+                    <xs:complexType>
+                      <xs:all>
+                        <!-- Candidate Key: Code -->
+                        <xs:element name="Code" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="3" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="PK" minOccurs="0" type="xs:string" />
+                      </xs:all>
+                      <xs:attribute name="Action" type="Action" />
+                      <xs:attribute name="TableName" type="xs:string" />
                     </xs:complexType>
                   </xs:element>
                   <xs:element name="ProcessTaskNotification_RegularTriggersCollection" minOccurs="0">
